@@ -8,7 +8,7 @@ const {
     createTodo,
     updateTodo,
     deleteTodo
-} = require('/controllers/todoController')
+} = require('./controllers/todoController')
 
 
 // env 
