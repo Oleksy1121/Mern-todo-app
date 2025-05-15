@@ -3,6 +3,13 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const Cors = require('cors')
 
+const {
+    getTodos,
+    createTodo,
+    updateTodo,
+    deleteTodo
+} = require('/controllers/todoController')
+
 
 // env 
 dotenv.config()
@@ -25,3 +32,9 @@ mongoose
     .catch((err) => {
         console.log(err)
     })
+
+// api endpoints
+app.get('/todos', getTodos)
+app.post('/todos', createTodo)
+app.put('/todos/:{id}', updateTodo)
+app.delete('/todos/:{id}', deleteTodo)
