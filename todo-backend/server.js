@@ -36,5 +36,5 @@ mongoose
 // api endpoints
 app.get('/todos', getTodos)
 app.post('/todos', createTodo)
-app.put('/todos/:{id}', updateTodo)
-app.delete('/todos/:{id}', deleteTodo)
+app.put('/todos/:id', updateTodo)
+app.delete('/todos/:id', deleteTodo)

@@ -12,7 +12,7 @@ const todoSchema = mongoose.Schema(
         }
     },
     {
-        timestams: true
+        timestamps: true
     }
 )
 

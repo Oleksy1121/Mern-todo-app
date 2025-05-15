@@ -4,7 +4,7 @@ const Todos = require('../dbTodos')
 
 const getTodos = async (req, res) => {
     try {
-        allTodos = await Todos.find({})
+        const allTodos = await Todos.find({})
         res.status(200).send(allTodos)
     } catch (err) {
         res.status(400).send(err.message)
@@ -14,7 +14,7 @@ const getTodos = async (req, res) => {
 const createTodo = async (req, res) => {
     const newTodo = req.body
     try {
-        createTodo = await Todos.create(newTodo)
+        const createTodo = await Todos.create(newTodo)
         res.status(201).send(createTodo)
     } catch (err) {
         res.status(401).send(err.message)
@@ -49,6 +49,7 @@ const deleteTodo = async (req, res) => {
         if (!deleteTodo) {
             return res.status(404).send(`Invalid task id: ${id}`)
         }
+        res.status(200).send(deleteTodo)
     } catch (err) {
         res.status(400).send(err.message)
     }
