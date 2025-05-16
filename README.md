@@ -1,19 +1,104 @@
-# MERN Todo Application
+# MERN To-Do Application
 
-A simple full-stack application for managing a list of tasks (todos).
+A simple full-stack To-Do application built using the MERN stack (MongoDB, Express.js, React, Node.js). This project allows users to add, view, update, and delete tasks.
 
-## Technology Stack
+## Technologies Used
 
-This project is built using the MERN stack:
+**Backend:**
+* Node.js
+* Express.js
+* MongoDB (with Mongoose ODM)
+* dotenv (for environment variables)
+* cors (for handling Cross-Origin Resource Sharing)
+* axios (used in the frontend to make API calls)
 
-* **Backend:** Node.js with Express.js
-* **Frontend:** React
-* **Database:** MongoDB
+**Frontend:**
+* React
+* Styled Components (for styling)
+* axios (for making API calls to the backend)
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+* Node.js (includes npm) - [https://nodejs.org/](https://nodejs.org/)
+* npm or Yarn - npm is included with Node.js; Yarn can be installed separately: [https://yarnpkg.com/](https://yarnpkg.com/)
+* MongoDB - [https://www.mongodb.com/](https://www.mongodb.com/) (You can install MongoDB locally or use a cloud-based solution like MongoDB Atlas)
+
+## Preview
+![](attachments/app_preview.jpg)
 
 ## Getting Started
 
-*(You will add instructions here later on how to set up and run both the backend and frontend parts of the application.)*
+Follow these steps to set up and run the project locally.
 
----
+### 1. Clone the Repository
 
-This project is currently under development.
+If you haven't already, clone the project repository from GitHub:
+
+```bash
+git clone <Your-Repository-URL>
+cd <Your-Repository-Name> 
+```
+### 2. Setup Backend
+Navigate to the backend directory, install dependencies, and set up environment variables.
+
+
+```bash
+cd todo-backend
+npm install # or yarn install
+```
+Create a .env file in the todo-backend directory and add your MongoDB connection string and desired port:
+
+```
+MONGO_URL=<Your-MongoDB-Connection-String>
+PORT=8000 # Or any other port you prefer
+```
+### 3. Setup Frontend
+Navigate to the frontend directory and install dependencies.
+
+```bash
+cd ../todo-frontend # Go back to the root and then into todo-frontend
+npm install # or yarn install
+```
+
+### 4. Run the Application
+First, start the backend server. Ensure you are in the todo-backend directory.
+
+```bash
+cd ../todo-backend # Igo to the backend
+node server.js 
+```
+
+In a new terminal window, start the frontend development server. Ensure you are in the todo-frontend directory.
+
+```
+cd ../todo-frontend # Go back to the root and then into todo-frontend
+npm start # or yarn start
+```
+The React development server should start, and your application will open in your browser (usually at http://localhost:3000/).
+
+## API Endpoints
+The backend provides the following API endpoints for managing todos:
+
+- `GET /todos`: Get all todo tasks.
+- `POST /todos`: Create a new todo task. 
+- `PUT /todos/:id`: Update a specific todo task by ID. Expects ID in the URL parameter.
+- `DELETE /todos/:id`: Delete a specific todo task by ID. Expects ID in the URL parameter.
+
+## Project Structure
+The project is organized into two main directories:
+
+- todo-backend/: Contains the Node.js/Express server code, Mongoose models, and API controllers.
+- todo-frontend/: Contains the React application code, including components and styles.
+
+
+## Future Improvements
+Potential areas for further development include:
+
+- Implementing full update functionality (editing task text).
+- Adding user authentication and authorization.
+- Improving UI/UX design and adding animations.
+- Adding more detailed error handling and user feedback.
+- Implementing filtering and sorting of tasks.
+- Adding due dates or priorities to tasks.
