@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const ListContainer = styled.ul`
-    box-sizing: border-box;
+    box-sizing: content-box;
     width: 100%;
     margin-top: 20px;
     padding: 10px;;

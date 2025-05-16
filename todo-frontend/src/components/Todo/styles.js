@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 
 export const TodoContainer = styled.div`
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -16,7 +17,10 @@ export const TodoContainer = styled.div`
     
 `
 export const TodoTitle = styled.h1`
+    color: #153677;
+    font-size: 2.2rem;
     width: 100%;
-    padding-bottom: 10px;
-    border-bottom: 1px solid black;
+    padding-left: 50px;
+    text-align: left;
+
 `
