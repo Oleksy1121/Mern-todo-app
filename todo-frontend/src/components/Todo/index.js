@@ -39,7 +39,7 @@ function Todo() {
         <TodoContainer>
             <TodoTitle>Todo List</TodoTitle>
             <Form addTodo={addTodo} setInput={setInput} input={input}></Form>
-            <TodoList></TodoList>
+            <TodoList todos= {todos} fetchData={fetchData}></TodoList>
         </TodoContainer>
     )
 }

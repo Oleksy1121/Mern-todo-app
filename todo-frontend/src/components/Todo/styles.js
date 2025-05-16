@@ -5,13 +5,13 @@ export const TodoContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin: auto;
-    padding: 10px 30px 40px;
+    padding: 10px 30px;
     background: #fff;
     align-items: center;
     width: 80%;
     max-width:800px;
     border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 24px;
     color: black;
     
 `
