@@ -1,0 +1,22 @@
+# docker services
+services: 
+  backend:                          # backend service
+    build: ./todo-backend           # backend path
+    container_name: todo-backend    # container name
+    ports:                          # ports
+      - "8000:8000"                 # port app (that nodejs listening) : port inside docker
+    env_file:                       # load variables from env files
+      - ./todo-backend/.env         # localization of env file
+    restart: always 
+
+
+  frontend:
+    build: ./todo-frontend 
+    container_name: todo-frontend
+    ports:
+      - "3000:80"
+    environment:
+      REACT_APP_API_URL: http://backend:8000
+    depends_on:
+      - backend
+    restart: always
