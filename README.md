@@ -17,13 +17,17 @@ A simple full-stack To-Do application built using the MERN stack (MongoDB, Expre
 * Styled Components (for styling)
 * axios (for making API calls to the backend)
 
-## Prerequisites
+**Deployment/Containerization:**
+* Docker
+* Docker Compose
 
+## Prerequisites
 Before you begin, ensure you have the following installed:
 
 * Node.js (includes npm) - [https://nodejs.org/](https://nodejs.org/)
 * npm or Yarn - npm is included with Node.js; Yarn can be installed separately: [https://yarnpkg.com/](https://yarnpkg.com/)
-* MongoDB - [https://www.mongodb.com/](https://www.mongodb.com/) (You can install MongoDB locally or use a cloud-based solution like MongoDB Atlas)
+* Docker Desktop (includes Docker Engine and Docker Compose) - [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
+
 
 ## Preview
 ![](attachments/app_preview.jpg)
@@ -54,29 +58,39 @@ Create a .env file in the todo-backend directory and add your MongoDB connection
 MONGO_URL=<Your-MongoDB-Connection-String>
 PORT=8000 # Or any other port you prefer
 ```
-### 3. Setup Frontend
-Navigate to the frontend directory and install dependencies.
+### 3. Build and Run the Application using Docker Compose
+Ensure you are in the root directory of the project (where docker-compose.yml is located).
 
 ```bash
-cd ../todo-frontend # Go back to the root and then into todo-frontend
-npm install # or yarn install
+# Build the Docker images for both backend and frontend, and start the containers in detached mode.
+# --build ensures images are built/rebuilt based on your Dockerfiles.
+docker-compose up -d --build
 ```
+**Note:** The first time you run this, Docker will download base images and build your application images, which may take some time. Subsequent runs will be faster due to Docker's build cache.
 
-### 4. Run the Application
-First, start the backend server. Ensure you are in the todo-backend directory.
+### 4. Access the Application
+Once the containers are up and running, open your web browser and navigate to:
 
-```bash
-cd ../todo-backend # Igo to the backend
-node server.js 
-```
+http://localhost:3000
 
-In a new terminal window, start the frontend development server. Ensure you are in the todo-frontend directory.
+To-Do application should now be accessible. The frontend will communicate with the backend running within the Docker network.
 
-```
-cd ../todo-frontend # Go back to the root and then into todo-frontend
-npm start # or yarn start
-```
-The React development server should start, and your application will open in your browser (usually at http://localhost:3000/).
+
+### 5. Managing the Dockerized Application
+* **To stop the application:**
+  ```bash
+  docker-compose stop
+  ```
+* **To stop and remove containers, networks, and images (if not used by other projects):**
+  ```bash
+  docker-compose down
+  ```
+* **To rebuild images after code changes (e.g., in todo-backend or todo-frontend):**
+  ```bash
+  docker-compose up -d --build
+  ```
+
+This will ensure your latest code is incorporated into the running containers.
 
 ## API Endpoints
 The backend provides the following API endpoints for managing todos:
